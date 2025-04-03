@@ -32,14 +32,4 @@ public class usuario { //Esta clase esta empleada nomas para el medico
     private String username;
     @Column(name = "password",nullable = false,unique = true)
     private String password;
-
-    @OneToOne(
-        fetch = FetchType.EAGER,
-        cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-        name = "id_doctor",
-        referencedColumnName = "id_doctor"
-    )
-    private doctor doctor;
 }
