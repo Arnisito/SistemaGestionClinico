@@ -17,6 +17,7 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +50,7 @@ public class paciente extends persona{
 
     @Column(name = "genero",nullable = false)
     @Enumerated(EnumType.STRING)
-    @NotEmpty(message = "No puede estar vacio el campo de genero")
+    @NotNull(message = "No puede estar vacio el campo de genero")
     private genero genero;
 
     @Column(name = "antecedentes",nullable = true,length = 3000)

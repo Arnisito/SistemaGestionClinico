@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -32,6 +33,7 @@ public class medicamento {
     @Column(name = "principo_activo",nullable = false,length = 200)
     private String principio_activo; // sustancia principal del medicamento
     @Column(name = "tipo_formato",nullable = false,length = 200)
+    @NotNull(message = "el formato del medicamento no puede estar vacio")
     private formatoMedicamento tipo_formato; // forma farmaceutica(tableta,jarabe,etc)
     @Column(name = "efectos_secundarios",nullable = true,length = 2000)
     private String efectos_secundarios; //efectos secundarios de este medicamento

@@ -19,7 +19,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -58,12 +58,12 @@ public class atencion {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_atencion")
-    @NotEmpty(message = "el tipo de atencion no puede esta vacio")
+    @NotNull(message = "el tipo de atencion no puede esta vacio")
     private tipoAtencion tipo_atencion;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_atencion")
-    @NotEmpty(message = "el estado de la atencio no puede esta vacio(ACTIVO,FINALIZADO,CANCELADO)")
+    @NotNull(message = "el estado de la atencio no puede esta vacio(ACTIVO,FINALIZADO,CANCELADO)")
     private estadoAtencion atencion;
 
 

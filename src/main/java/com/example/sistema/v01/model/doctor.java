@@ -19,6 +19,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,7 +42,7 @@ public class doctor extends persona{
 
     @Enumerated(EnumType.STRING)
     @Column(name = "area_medica",nullable = false)
-    @NotEmpty(message = "No puede esta vacio el area medica del doctor")
+    @NotNull(message = "No puede esta vacio el area medica del doctor")
     private areaMedica area_medica;
     
     @Column(name = "cmp_doc",length = 10,nullable = false,unique = true)
