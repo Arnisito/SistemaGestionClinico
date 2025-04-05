@@ -20,12 +20,12 @@ import lombok.experimental.SuperBuilder;
 @Setter
 public abstract class persona {
 
-    @Column(length = 255)
+    @Column(length = 255,nullable = false)
     @Length(max = 255,message = "El nombre paso el limite de caracteres")
     @NotEmpty(message = "No puede estar vacio el nombre")
     private String nombres;
 
-    @Column(length = 255)
+    @Column(length = 255 ,nullable = false)
     @Length(max = 255,message = "El apellido paso el limite de caracteres")
     @NotEmpty(message = "No puede estar vacio el apellido")
     private String apellido;

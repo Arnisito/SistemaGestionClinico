@@ -1,5 +1,7 @@
 package com.example.sistema.v01.model;
 
+import java.util.UUID;
+
 import org.hibernate.validator.constraints.Length;
 
 import com.example.sistema.v01.model.enums.genero;
@@ -14,6 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,12 +33,13 @@ import lombok.experimental.SuperBuilder;
 @Setter
 public class paciente extends persona{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_paciente")
-    private Long id;
+    private UUID id;
 
     @Column(name = "fecha_nacimiento",nullable = false,length = 20)
     @Length(max = 20 , message = "la fecha de nacimineto paso el limite de caracteres")
+    @NotEmpty(message = "No pueden estar vacio el campo de nacimiento")
     private String fecha_nacimiento;
 
     @Column(name = "edad",nullable = false,length = 3)
@@ -45,6 +49,7 @@ public class paciente extends persona{
 
     @Column(name = "genero",nullable = false)
     @Enumerated(EnumType.STRING)
+    @NotEmpty(message = "No puede estar vacio el campo de genero")
     private genero genero;
 
     @Column(name = "antecedentes",nullable = true,length = 3000)

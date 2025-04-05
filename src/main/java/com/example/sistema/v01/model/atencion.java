@@ -1,5 +1,9 @@
 package com.example.sistema.v01.model;
 
+import java.util.UUID;
+
+import org.hibernate.validator.constraints.Length;
+
 import com.example.sistema.v01.model.enums.estadoAtencion;
 import com.example.sistema.v01.model.enums.tipoAtencion;
 
@@ -13,9 +17,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,9 +34,9 @@ import lombok.NoArgsConstructor;
 public class atencion {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_atencion")
-    private Long id;
+    private UUID id;
 
     @OneToOne(
         cascade = CascadeType.ALL,
@@ -40,30 +44,27 @@ public class atencion {
     )
     @JoinColumn(
         name = "id_cita",
-        referencedColumnName = "id_cita"
+        referencedColumnName = "id_cita",
+        nullable = false
     )
     private cita cita;
 
     @Column(name = "diagnostico",nullable = false,length = 2000)
+    @Length(message = "el diagnostico paso el limite de caracteres",max = 2000)
     private String diagnostico;
     @Column(name = "tratamiento",nullable = false,length = 2000)
+    @Length(message = "el tratamiento paso el limite de caracteres",max = 2000)
     private String tratamiento;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_atencion")
+    @NotEmpty(message = "el tipo de atencion no puede esta vacio")
     private tipoAtencion tipo_atencion;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_atencion")
+    @NotEmpty(message = "el estado de la atencio no puede esta vacio(ACTIVO,FINALIZADO,CANCELADO)")
     private estadoAtencion atencion;
 
-    @ManyToOne(
-        cascade = CascadeType.ALL,
-        fetch = FetchType.LAZY
-    )
-    @JoinColumn(
-        name = "id_historial_atencion",
-        referencedColumnName = "id_historial_atencion"
-    )
-    private historialAtenciones historialAtenciones;
+
 }

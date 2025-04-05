@@ -1,5 +1,7 @@
 package com.example.sistema.v01.model;
 
+import java.util.UUID;
+
 import org.hibernate.validator.constraints.Length;
 
 import com.example.sistema.v01.model.enums.areaMedica;
@@ -33,9 +35,9 @@ import lombok.experimental.SuperBuilder;
 public class doctor extends persona{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_doctor")
-    private Long id;
+    private UUID id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "area_medica",nullable = false)
@@ -53,7 +55,8 @@ public class doctor extends persona{
     )
     @JoinColumn(
         name = "id_usuario",
-        referencedColumnName = "id_usuario"
+        referencedColumnName = "id_usuario",
+        nullable = false
     )
     private usuario usuario;
 }

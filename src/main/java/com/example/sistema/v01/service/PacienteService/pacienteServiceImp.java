@@ -2,6 +2,7 @@ package com.example.sistema.v01.service.PacienteService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,12 @@ public class pacienteServiceImp implements pacienteService{
     }
 
     @Override
-    public Optional<paciente> getByIdPaciente(Long id) {
+    public Optional<paciente> getByIdPaciente(UUID id) {
         return repository.findById(id);
     }
 
     @Override
-    public void deleteByIdPaciente(Long id) {
+    public void deleteByIdPaciente(UUID id) {
         repository.deleteById(id);
     }
 
