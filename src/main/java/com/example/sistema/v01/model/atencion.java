@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.Length;
 
-import com.example.sistema.v01.model.enums.estadoAtencion;
 import com.example.sistema.v01.model.enums.tipoAtencion;
 
 import jakarta.persistence.CascadeType;
@@ -60,11 +59,6 @@ public class atencion {
     @Column(name = "tipo_atencion")
     @NotNull(message = "el tipo de atencion no puede esta vacio")
     private tipoAtencion tipo_atencion;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "estado_atencion")
-    @NotNull(message = "el estado de la atencio no puede esta vacio(ACTIVO,FINALIZADO,CANCELADO)")
-    private estadoAtencion atencion;
 
 
 }

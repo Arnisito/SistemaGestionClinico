@@ -4,9 +4,12 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.Length;
 
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,6 +30,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Builder
 public class cita {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_cita")
@@ -60,4 +64,5 @@ public class cita {
     @Length(message = "La descripcion a superado el max de caracteres (2000)",max = 2000)
     private String descripcion;
 
+    
 }

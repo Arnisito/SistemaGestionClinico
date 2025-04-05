@@ -29,6 +29,11 @@ public class controladorPaciente {
     @Autowired
     private pacienteService service;
     
+    /***
+     * 
+     * @param id
+     * @return "Crud basico"
+    */
 
     @GetMapping("/{id}")
     public ResponseEntity<?> buscarPaciente(@PathVariable UUID id) {
