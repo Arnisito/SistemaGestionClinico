@@ -62,5 +62,15 @@ public class cita {
     @Length(message = "La descripcion a superado el max de caracteres (2000)",max = 2000)
     private String descripcion;
 
+    @ManyToOne(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+        name = "id_enfermero",
+        referencedColumnName = "id_enfermero",
+        nullable = false
+    )
+    private enfermero enfermero;
     
 }

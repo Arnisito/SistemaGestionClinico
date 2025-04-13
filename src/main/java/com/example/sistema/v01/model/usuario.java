@@ -32,8 +32,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
-public class usuario implements UserDetails { //Esta clase esta empleada nomas para el medico (Con esta trabajar para hacer la seguridad mano)
-
+public class usuario implements UserDetails { 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_usuario")
