@@ -33,7 +33,7 @@ public class jwtService {
         .compact();
     }
 
-    public String GenerarToken(UserDetails userDetails) {
+    public String GenerarToken(UserDetails userDetails) {  //Opcional
         return GenerarTokenDetalles(Map.of(), userDetails);
     }
     
