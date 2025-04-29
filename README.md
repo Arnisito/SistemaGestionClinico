@@ -61,3 +61,4 @@ telemedicina, gestión de farmacia, integración con laboratorios clínicos, y e
 avanzadas.
 Estas mejoras permitirán cubrir un espectro más amplio de necesidades clínicas y atraer a
 nuevos clientes.
+tengo hambreeeeeeeeeeeeeeeeeee
