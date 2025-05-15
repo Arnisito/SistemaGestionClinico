@@ -62,3 +62,25 @@ avanzadas.
 Estas mejoras permitirán cubrir un espectro más amplio de necesidades clínicas y atraer a
 nuevos clientes.
 tengo hambreeeeeeeeeeeeeeeeeee
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Visor Interactivo del Diagrama</title>
+  <style>
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧭 Visor Interactivo del Diagrama</h1>
+  <iframe
+    src="https://www.figma.com/board/vA9YYp9B3HMLYKgtRYovFI/IntegradorI-SolucionesApiWeb?node-id=0-1&t=z48LPQCiPH7L6S5B-1"
+    allowfullscreen>
+  </iframe>
+</body>
+</html>
